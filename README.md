@@ -14,7 +14,7 @@ The core components of the project is to demostrate:
   Job Submission (Natalie Betts) - 
        Job submission header file
     
-  Machine Architecture - 
+  Machine Architecture (Natalie Betts) - 
        RAM model for user processes,
        CPU functionality, 
        I/O devices, 
