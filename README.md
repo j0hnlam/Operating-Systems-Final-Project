@@ -1,7 +1,7 @@
 Operating-Systems-Final-Project
 ===============================
 
-Final Project of our simulation of an OS for the course Operating Systems Fundamentals (60-330) at the University of Windsor.
+Final Project of our simulation of an OS for the course Operating Systems Fundamentals (60-330) at the University of Windsor, School of Computer Science.
 
 The group consists of:
 John Lam, Kyle Petrozzi, Ryan Shaw and Natalie Betts
