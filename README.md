@@ -15,29 +15,28 @@ The core components of the project is to demostrate:
     ·   Job submission header file
     
   Machine Architecture 
-    ·   RAM model for user processes
-    ·   CPU functionality
-    ·   I/O devices
-    ·   You may design your own system clock functionality
+    ·   RAM model for user processes,
+    ·   CPU functionality, 
+    ·   I/O devices, 
     
   Process and Resource tables; Queues and Management (Ryan Shaw)
-    ·   Resource management tables
-    ·   Device management tables
-    ·   A 5-state queueing model
+    ·   Resource management tables, 
+    ·   Device management tables, 
+    ·   A 5-state queueing model, 
     ·   Queue management
     
   Scheduling (Kyle Petrozzi)
-    ·   Short term and Long term
-    ·   Round-Robin, FCFS, SJF, Priority
-    ·   Deadlock avoidance/prevention may be implemented
+    ·   Short term and Long term, 
+    ·   Round-Robin, FCFS, SJF, Priority, 
+    ·   Deadlock avoidance/prevention
     
   User Processes Synchronization and Simulation (John Lam)
-    ·   Simulation of single process execution
-    ·   Multiprogramming support and management
-    ·   Synchronization and Critical Sections
+    ·   Simulation of single process execution, 
+    ·   Multiprogramming support and management, 
+    ·   Synchronization and Critical Sections, 
     ·   Peterson Solution to critical sections
     
   User Interface and Reporting (Natalie Betts)
-    ·   Command line interface
-    ·   Reporting summary statistics gathered during simulation run
+    ·   Command line interface, 
+    ·   Reporting summary statistics gathered during simulation run, 
     ·   Comparative statistics for various scheduling using two or more different algorithms
