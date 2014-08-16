@@ -1,0 +1,61 @@
+#include <iostream>
+#include <stdexcept>
+#include <fstream>
+using namespace std;
+int main() {
+	int io [100];
+	int burst[100];
+	int input;
+	int num = 0;
+	int temp;
+
+		cout << "How many process would you like to start? ";
+		cin >> input;
+//		int process[100];
+		for (int i = 0; i < input; i++){
+			cout << "Enter burst time for Process #" << i <<" :";
+			cin >> burst[i];
+			cout << "Does it require I/O? (1/yes 0/no): ";
+			cin >> io[i];
+		}
+
+		cout << "Summary: \n";
+
+		for (int i = 0; i < input; i++){
+			cout << "Process #" << i << ":\n";
+			cout << "Input from user: " << io[i] <<"\n";
+			cout << "Burst time: " << burst[i] << "\n";
+		}
+
+		cout << "Run? (1/yes 0/no)?";
+		cin >> temp;
+
+		if (temp == 0){
+			system("pause");
+			return 0;
+		}
+
+		for (int i = 0; i < input; i++){
+			temp = NULL;
+			cout << "Process #" << i << ": NEW \n";
+			cout << "------------------------------CHANGE STATE NEW -> READY\n";
+			cout << "Process #" << i << ": READY \n";
+			cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
+			cout << "Process #" << i << ": RUNNING \n";
+			if (io[i] == 1){
+				cout << "------------------------------CHANGE STATE RUNNING -> WAITING\n";
+				cout << "Process #" << i << ": WAITING FOR I/O... \n";
+				system("pause");
+				cout << "------------------------------CHANGE STATE WAITING -> READY\n";
+				cout << "Process #" << i << ": READY \n";
+				cout << "------------------------------CHANGE READY NEW -> RUNNING\n";
+				cout << "Process #" << i << ": RUNNING \n";
+			}
+			cout << "------------------------------CHANGE STATE RUNNING -> TERMINATED\n";
+			cout << "Process #" << i << ": TERMINATED \n\n\n\n\n";
+		}
+		cout << "finished! type something to exit...";
+		cin >> input;
+		//system("pause");
+		return 0;
+}
