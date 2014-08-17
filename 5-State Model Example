@@ -9,9 +9,9 @@ int main() {
 	int num = 0;
 	int temp;
 
+
 		cout << "How many process would you like to start? ";
 		cin >> input;
-//		int process[100];
 		for (int i = 0; i < input; i++){
 			cout << "Enter burst time for Process #" << i <<" :";
 			cin >> burst[i];
@@ -34,26 +34,64 @@ int main() {
 			system("pause");
 			return 0;
 		}
-
-		for (int i = 0; i < input; i++){
-			temp = NULL;
+		for (int i = 0; i < (input); i++){
 			cout << "Process #" << i << ": NEW \n";
 			cout << "------------------------------CHANGE STATE NEW -> READY\n";
-			cout << "Process #" << i << ": READY \n";
-			cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
-			cout << "Process #" << i << ": RUNNING \n";
-			if (io[i] == 1){
-				cout << "------------------------------CHANGE STATE RUNNING -> WAITING\n";
-				cout << "Process #" << i << ": WAITING FOR I/O... \n";
-				system("pause");
-				cout << "------------------------------CHANGE STATE WAITING -> READY\n";
-				cout << "Process #" << i << ": READY \n";
-				cout << "------------------------------CHANGE READY NEW -> RUNNING\n";
-				cout << "Process #" << i << ": RUNNING \n";
-			}
-			cout << "------------------------------CHANGE STATE RUNNING -> TERMINATED\n";
-			cout << "Process #" << i << ": TERMINATED \n\n\n\n\n";
+			cout << "Process #" << i << ": READY \n\n\n";
 		}
+		for (int b = 0; b < (input*5); b++)
+		{
+			for (int i = 0; i < input; i++){
+
+				if (io[i] == 1){
+					cout << " \n\n\nProcess #" << i << ": READY \n";
+					cout << "------------------------------CHANGE STATE RUNNING -> WAITING\n";
+					cout << "Process #" << i << ": WAITING FOR I/O (***in I/O Queue***)... \n";
+					system("pause");
+					cout << "------------------------------CHANGE STATE WAITING -> READY\n";
+					cout << "Process #" << i << ": READY \n";
+					io[i] = 2;
+				}
+
+				else if (io[i] == 2){
+					cout << "\n\n\n Process #" << i << ": READY \n";
+					cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
+					cout << "Process #" << i << ": RUNNING \n";
+					cout << "------------------------------CHANGE STATE (***TIME SLICE EXPIRED***) RUNNING -> READY\n";
+					cout << "Process #" << i << ": READY \n";
+					io[i] = 3;
+				}
+				else if (io[i] == 3){
+					cout << "\n\n\n Process #" << i << ": READY \n";
+					cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
+					cout << "Process #" << i << ": RUNNING \n";
+					cout << "------------------------------CHANGE STATE (***FORK A CHILD***) RUNNING -> READY\n";
+					cout << "Process #" << i << ": READY \n";
+					io[i] = 4;
+				}
+
+				else if (io[i] == 4){
+					cout << "\n\n\n Process #" << i << ": READY \n";
+					cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
+					cout << "Process #" << i << ": RUNNING \n";
+					cout << "------------------------------CHANGE STATE (***WAIT FOR INTERRUPT***) RUNNING -> WAITING\n";
+					cout << "Process #" << i << ": WAITING \n";
+					cout << "------------------------------CHANGE STATE (***INTERRUPT OCCURED***) WAITING -> READY\n";
+					cout << "Process #" << i << ": READY \n";
+					io[i] = 5;
+				}
+				else if (io[i] == 5){
+					cout << "\n\n\n Process #" << i << ": READY \n";
+					cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
+					cout << "Process #" << i << ": RUNNING \n";
+					cout << "------------------------------CHANGE STATE RUNNING -> TERMINATED\n";
+					cout << "Process #" << i << ": TERMINATED \n\n\n\n\n";
+					io[i] = 6;
+				}
+			}
+		}
+		
+
 		cout << "finished! type something to exit...";
 		cin >> input;
 		//system("pause");
