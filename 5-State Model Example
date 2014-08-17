@@ -50,10 +50,10 @@ int main() {
 					system("pause");
 					cout << "------------------------------CHANGE STATE WAITING -> READY\n";
 					cout << "Process #" << i << ": READY \n";
-					io[i] = 2;
+					io[i] = 0;
 				}
 
-				else if (io[i] == 2){
+				else if (io[i] == 0){
 					cout << "\n\n\n Process #" << i << ": READY \n";
 					cout << "------------------------------CHANGE STATE READY -> RUNNING\n";
 					cout << "Process #" << i << ": RUNNING \n";
