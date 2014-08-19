@@ -2,17 +2,21 @@
 #include<string.h>
 #include<stdlib.h>
 
+// necessary global variables for comparison
 float totalWaitPQ, totalWaitSJF, averageWaitPQ, averageWaitSJF, totalTATPQ, totalTATSJF, averageTATPQ, averageTATSJF;
 
+// the functions used
 void PQ();
 void SJF();
 void displaySJF();
 void displayPQ();
 
 int main() {
+	// call the functions
 	PQ();
 	SJF();
 	
+	// output certain statements depending on the results
 	if(totalWaitPQ > totalWaitSJF)
 		printf("The total wait time for the PQ was larger than the total wait time for the SJF, and thus the SJF is better.\n");
 	else if(totalWaitPQ < totalWaitSJF)
@@ -36,6 +40,7 @@ int main() {
 	return 0;
 }
 
+// the PQ scheduling function; calculates and saves to the PQ global variables the times
 void PQ() {
 	int i,j,numOfProcesses,time,totalWait=0,totalTat=0,smallest;
 	int arrivalTime[10],burstTime[10],priority[10],remainingTime[10],remain;
@@ -79,6 +84,7 @@ void PQ() {
 	printf("\nAverage turnaround time = %f\n",averageTATPQ);
 }
 
+// the SJF scheduling function; calculates and saves to the SJF global variables the times
 void SJF() {
 	int time,burstTime[10],arrivalTime[10],sumOfBurst=0,smallest,numOfProcesses,i;
 	int totalTat=0,totalWait=0;
@@ -117,6 +123,8 @@ void SJF() {
 	printf("\nTotal turnaround time = %f",totalTATSJF);
 	printf("\nAverage turnaround time = %f\n",averageTATSJF);
 }
+
+// display the results on their own
 void displaySJF(int burstTime[10],int arrivalTime[10], int numOfProcesses )
 {
 	int i;
@@ -127,6 +135,7 @@ void displaySJF(int burstTime[10],int arrivalTime[10], int numOfProcesses )
 	}
 }
 
+// display the results on their own
 void displayPQ(int burstTime[10],int arrivalTime[10], int numOfProcesses, int priority[10] )
 {
 	int i;
